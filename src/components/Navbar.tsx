@@ -90,8 +90,11 @@ export function Navbar() {
 
       {/* Overlay menu */}
       <div
-        className={`fixed inset-0 z-40 flex flex-col justify-center bg-espresso text-cream transition-all duration-500 ${
-          open ? 'pointer-events-auto opacity-100' : 'pointer-events-none opacity-0'
+        aria-hidden={!open}
+        className={`fixed inset-0 z-40 flex flex-col justify-center bg-espresso text-cream transition-opacity duration-500 ${
+          open
+            ? 'visible pointer-events-auto opacity-100'
+            : 'invisible pointer-events-none opacity-0'
         }`}
       >
         <div className="pointer-events-none absolute -right-24 top-10 h-96 w-96 rounded-full bg-rose/20 blur-[120px]" />
