@@ -5,11 +5,11 @@ import { ArrowUpRight } from './Icons'
 
 // Curated headline services for the editorial list
 const menu = [
-  { title: 'Russian Manicure', img: 'https://images.unsplash.com/photo-1604654894610-df63bc536371?auto=format&fit=crop&w=900&q=80' },
-  { title: 'Gel-X Enhancement', img: 'https://images.unsplash.com/photo-1632345031435-8727f6897d53?auto=format&fit=crop&w=900&q=80' },
-  { title: 'Permanent Makeup', img: 'https://images.unsplash.com/photo-1526045478516-99145907023c?auto=format&fit=crop&w=900&q=80' },
-  { title: 'Lashes & Brows', img: 'https://images.unsplash.com/photo-1519014816548-bf5fe059798b?auto=format&fit=crop&w=900&q=80' },
-  { title: 'Skin Care & Waxing', img: 'https://images.unsplash.com/photo-1600948836101-f9ffda59d250?auto=format&fit=crop&w=900&q=80' },
+  { title: 'Russian Manicure', img: 'https://images.unsplash.com/photo-1604654894610-df63bc536371?auto=format&fit=crop&w=900&q=70' },
+  { title: 'Gel-X Enhancement', img: 'https://images.unsplash.com/photo-1632345031435-8727f6897d53?auto=format&fit=crop&w=900&q=70' },
+  { title: 'Permanent Makeup', img: 'https://images.unsplash.com/photo-1526045478516-99145907023c?auto=format&fit=crop&w=900&q=70' },
+  { title: 'Lashes & Brows', img: 'https://images.unsplash.com/photo-1519014816548-bf5fe059798b?auto=format&fit=crop&w=900&q=70' },
+  { title: 'Skin Care & Waxing', img: 'https://images.unsplash.com/photo-1600948836101-f9ffda59d250?auto=format&fit=crop&w=900&q=70' },
 ]
 
 export function Services() {

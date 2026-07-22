@@ -1,6 +1,6 @@
 import { site } from '../data/site'
 import { ArrowUpRight } from './Icons'
-import logo from '../assets/theo-stella-logo.png'
+import logo from '../assets/theo-stella-logo.webp'
 
 export function Hero() {
   return (
@@ -23,6 +23,10 @@ export function Hero() {
           <img
             src={logo}
             alt="Theo·Stella Beauty Bar"
+            width={480}
+            height={480}
+            fetchPriority="high"
+            decoding="async"
             className="mb-2 h-40 w-auto drop-shadow-[0_10px_30px_rgba(216,140,150,0.35)] sm:h-52"
           />
 

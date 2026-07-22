@@ -1,6 +1,6 @@
 import { site } from '../data/site'
 import { SocialIcon } from './Icons'
-import logo from '../assets/theo-stella-logo.png'
+import logo from '../assets/theo-stella-logo.webp'
 
 const nav = [
   ['Home', '#top'],
@@ -20,7 +20,15 @@ export function Footer() {
         {/* Logo badge */}
         <div className="flex justify-center pt-14">
           <div className="rounded-full bg-cream/95 px-8 py-6 shadow-[var(--shadow-card)]">
-            <img src={logo} alt="Theo·Stella Beauty Bar" className="h-20 w-auto" />
+            <img
+              src={logo}
+              alt="Theo·Stella Beauty Bar"
+              width={480}
+              height={480}
+              loading="lazy"
+              decoding="async"
+              className="h-20 w-auto"
+            />
           </div>
         </div>
 

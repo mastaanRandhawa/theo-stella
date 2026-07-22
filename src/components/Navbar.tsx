@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { site } from '../data/site'
 import { ArrowUpRight, Menu, Phone } from './Icons'
-import logo from '../assets/theo-stella-logo.png'
+import logo from '../assets/theo-stella-logo.webp'
 
 const links = [
   { label: 'Home', href: '#top' },
@@ -55,6 +55,10 @@ export function Navbar() {
               <img
                 src={logo}
                 alt="Theo·Stella Beauty Bar"
+                width={480}
+                height={480}
+                fetchPriority="high"
+                decoding="async"
                 className="h-12 w-auto sm:h-14"
               />
             )}

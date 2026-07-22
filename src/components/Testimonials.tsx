@@ -4,8 +4,8 @@ import { Reveal } from './Reveal'
 import { ArrowLeft, Arrow } from './Icons'
 
 const photos = [
-  'https://images.unsplash.com/photo-1610992015732-2449b76344bc?auto=format&fit=crop&w=600&q=80',
-  'https://images.unsplash.com/photo-1632345031435-8727f6897d53?auto=format&fit=crop&w=600&q=80',
+  'https://images.unsplash.com/photo-1610992015732-2449b76344bc?auto=format&fit=crop&w=600&q=70',
+  'https://images.unsplash.com/photo-1632345031435-8727f6897d53?auto=format&fit=crop&w=600&q=70',
 ]
 
 export function Testimonials() {
