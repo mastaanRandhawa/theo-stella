@@ -1,5 +1,6 @@
 import { gallery } from '../data/site'
 import { Reveal } from './Reveal'
+import { LazyImage } from './LazyImage'
 
 export function Gallery() {
   return (
@@ -27,14 +28,12 @@ export function Gallery() {
                 i === 0 ? 'lg:col-span-2 lg:row-span-2' : ''
               } ${i === 3 ? 'row-span-2' : ''}`}
             >
-              <img
+              <LazyImage
                 src={g.src}
                 srcSet={`${g.src.replace(/w=\d+/, 'w=400')} 400w, ${g.src.replace(/w=\d+/, 'w=800')} 800w`}
                 sizes="(min-width: 1024px) 25vw, 50vw"
                 alt={g.alt}
-                loading="lazy"
-                decoding="async"
-                className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                className="h-full w-full object-cover ease-out group-hover:scale-105"
               />
             </Reveal>
           ))}

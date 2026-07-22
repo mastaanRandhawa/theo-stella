@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { testimonials } from '../data/site'
 import { Reveal } from './Reveal'
+import { LazyImage } from './LazyImage'
 import { ArrowLeft, Arrow } from './Icons'
 
 const photos = [
@@ -21,10 +22,10 @@ export function Testimonials() {
           {/* Images */}
           <Reveal className="flex gap-4">
             <div className="mt-10 flex-1 overflow-hidden rounded-3xl shadow-[var(--shadow-card)]">
-              <img src={photos[0]} alt="Guest in the studio" className="h-72 w-full object-cover" loading="lazy" />
+              <LazyImage src={photos[0]} alt="Guest in the studio" className="h-72 w-full object-cover" />
             </div>
             <div className="flex-1 overflow-hidden rounded-3xl shadow-[var(--shadow-card)]">
-              <img src={photos[1]} alt="Finished nail set" className="h-80 w-full object-cover" loading="lazy" />
+              <LazyImage src={photos[1]} alt="Finished nail set" className="h-80 w-full object-cover" />
             </div>
           </Reveal>
 

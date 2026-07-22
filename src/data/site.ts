@@ -12,6 +12,8 @@ export const site = {
     full: '13639 George Jct #104, Surrey, BC V3T 0R1',
     mapUrl:
       'https://www.google.com/maps/search/?api=1&query=13639+George+Jct+%23104+Surrey+BC+V3T+0R1',
+    lat: 49.1819074,
+    lon: -122.8433873,
   },
   socials: [
     { label: 'Instagram', href: 'https://www.instagram.com/', icon: 'instagram' },

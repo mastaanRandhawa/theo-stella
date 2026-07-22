@@ -1,5 +1,6 @@
 import { site } from '../data/site'
 import { Reveal } from './Reveal'
+import { LazyImage } from './LazyImage'
 import { ArrowUpRight } from './Icons'
 
 export function About() {
@@ -14,11 +15,10 @@ export function About() {
           {/* Big statement with overlapping images */}
           <Reveal className="relative">
             <div className="pointer-events-none absolute -right-2 -top-16 hidden h-40 w-56 overflow-hidden rounded-xl border-4 border-cream shadow-[var(--shadow-card)] lg:block">
-              <img
+              <LazyImage
                 src="https://images.unsplash.com/photo-1600948836101-f9ffda59d250?auto=format&fit=crop&w=500&q=70"
                 alt="Salon detail"
                 className="h-full w-full object-cover"
-                loading="lazy"
               />
             </div>
 
@@ -33,11 +33,10 @@ export function About() {
           {/* Left image + body + arrow */}
           <Reveal className="flex flex-col gap-6" delay={120}>
             <div className="overflow-hidden rounded-2xl shadow-[var(--shadow-card)]">
-              <img
+              <LazyImage
                 src="https://images.unsplash.com/photo-1522337660859-02fbefca4702?auto=format&fit=crop&w=600&q=70"
                 alt="Elegant French manicure"
                 className="h-56 w-full object-cover"
-                loading="lazy"
               />
             </div>
             <p className="text-sm font-light leading-relaxed text-plum/65">

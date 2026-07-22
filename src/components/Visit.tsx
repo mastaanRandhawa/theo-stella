@@ -5,9 +5,16 @@ import { Arrow, Clock, Mail, MapPin, Phone } from './Icons'
 
 export function Visit() {
   const [mapLoaded, setMapLoaded] = useState(false)
-  const mapEmbed = `https://maps.google.com/maps?q=${encodeURIComponent(
-    site.address.full,
-  )}&t=&z=15&ie=UTF8&iwloc=&output=embed`
+  const [mapReady, setMapReady] = useState(false)
+
+  // Privacy-friendly OpenStreetMap embed — no cookies/tracking, so it never
+  // triggers Safari's cross-site permission prompts (unlike the Google embed).
+  const { lat, lon } = site.address
+  const d = 0.006
+  const bbox = `${lon - d},${lat - d * 0.6},${lon + d},${lat + d * 0.6}`
+  const mapEmbed = `https://www.openstreetmap.org/export/embed.html?bbox=${encodeURIComponent(
+    bbox,
+  )}&layer=mapnik&marker=${lat},${lon}`
 
   return (
     <section id="visit" className="bg-cream py-24 lg:py-32">
@@ -75,15 +82,31 @@ export function Visit() {
             </a>
           </Reveal>
 
-          {/* Map — only loads Google Maps after the visitor taps (saves ~1MB on mobile) */}
+          {/* Map — loads only after the visitor taps, keeping the first load light */}
           <Reveal className="relative min-h-[24rem] overflow-hidden rounded-3xl border border-mauve/15 shadow-[var(--shadow-card)]">
             {mapLoaded ? (
-              <iframe
-                title="Map to Theo·Stella Beauty Bar"
-                src={mapEmbed}
-                className="h-full min-h-[24rem] w-full"
-                referrerPolicy="no-referrer-when-downgrade"
-              />
+              <>
+                {!mapReady && (
+                  <div className="absolute inset-0 z-10 flex flex-col items-center justify-center gap-3 bg-shell/60">
+                    <span className="h-9 w-9 animate-spin rounded-full border-2 border-mauve/30 border-t-rose" />
+                    <span className="editorial-label">Loading map…</span>
+                  </div>
+                )}
+                <iframe
+                  title="Map to Theo·Stella Beauty Bar"
+                  src={mapEmbed}
+                  className="h-full min-h-[24rem] w-full"
+                  onLoad={() => setMapReady(true)}
+                />
+                <a
+                  href={site.address.mapUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="absolute bottom-4 right-4 z-10 rounded-full bg-plum/90 px-4 py-2 text-xs uppercase tracking-[0.14em] text-cream backdrop-blur transition-colors hover:bg-espresso"
+                >
+                  Get Directions
+                </a>
+              </>
             ) : (
               <button
                 type="button"
