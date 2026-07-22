@@ -17,25 +17,6 @@ export function Hero() {
       <div className="pointer-events-none absolute -left-24 top-1/3 h-80 w-80 rounded-full bg-blush/60 blur-[110px]" />
       <div className="pointer-events-none absolute -right-24 top-1/2 h-96 w-96 rounded-full bg-mauve/20 blur-[120px]" />
 
-      {/* Floating accent photos */}
-      <div className="animate-float pointer-events-none absolute left-6 top-1/3 hidden w-40 overflow-hidden rounded-2xl border-4 border-cream/80 shadow-[var(--shadow-card)] lg:block">
-        <img
-          src="https://images.unsplash.com/photo-1604654894610-df63bc536371?auto=format&fit=crop&w=400&q=80"
-          alt="Blush manicure"
-          className="h-52 w-full object-cover"
-        />
-      </div>
-      <div
-        className="animate-float pointer-events-none absolute right-8 top-1/2 hidden w-44 overflow-hidden rounded-2xl border-4 border-cream/80 shadow-[var(--shadow-card)] lg:block"
-        style={{ animationDelay: '1.4s' }}
-      >
-        <img
-          src="https://images.unsplash.com/photo-1632345031435-8727f6897d53?auto=format&fit=crop&w=400&q=80"
-          alt="Nail art detail"
-          className="h-56 w-full object-cover"
-        />
-      </div>
-
       <div className="relative z-10 flex min-h-screen flex-col justify-between px-6 pb-10 pt-28 lg:px-10">
         {/* Center cluster */}
         <div className="flex flex-1 flex-col items-center justify-center text-center">

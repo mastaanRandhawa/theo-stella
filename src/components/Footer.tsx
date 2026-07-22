@@ -84,11 +84,28 @@ export function Footer() {
           </div>
         </div>
 
-        {/* Giant wordmark */}
-        <a href="#top" className="block border-t border-cream/10 pt-10">
-          <span className="block text-center font-serif text-[22vw] leading-[0.8] text-cream/95 lg:text-[16rem]">
-            Theo<span className="text-rose">·</span>Stella
-          </span>
+        {/* Giant wordmark — SVG scales to fit width, never overflows */}
+        <a href="#top" className="block border-t border-cream/10 pt-10" aria-label="Theo·Stella">
+          <svg
+            viewBox="0 0 1000 210"
+            className="block w-full text-cream/95"
+            role="img"
+            aria-label="Theo·Stella"
+          >
+            <text
+              x="0"
+              y="168"
+              textLength="1000"
+              lengthAdjust="spacingAndGlyphs"
+              fill="currentColor"
+              style={{ fontFamily: 'var(--font-serif)', fontWeight: 600 }}
+              fontSize="200"
+            >
+              Theo
+              <tspan fill="#e5a2ac">·</tspan>
+              Stella
+            </text>
+          </svg>
         </a>
 
         <div className="flex flex-col items-center justify-between gap-3 py-8 text-xs text-cream/40 sm:flex-row">
