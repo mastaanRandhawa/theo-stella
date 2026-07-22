@@ -28,7 +28,25 @@
     <title>Theo·Stella Beauty Bar — Surrey Nail & Beauty Studio</title>
   </head>
   <body>
-    <div id="root"></div>
+    <div id="root">
+      <!-- Instant on-brand first paint; React replaces this on mount -->
+      <div
+        style="
+          position: fixed;
+          inset: 0;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background: radial-gradient(120% 90% at 50% 0%, #fbe3e6 0%, #f9d9dd 22%, #faf3ef 60%);
+          font-family: 'Cormorant Garamond', Georgia, serif;
+          color: #3b2d30;
+        "
+      >
+        <div style="font-size: 2.25rem; letter-spacing: 0.01em">
+          Theo<span style="color: #e5a2ac">·</span>Stella
+        </div>
+      </div>
+    </div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
