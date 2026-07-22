@@ -62,8 +62,11 @@ export function Services() {
               <img
                 key={m.title}
                 src={m.img}
+                srcSet={`${m.img.replace(/w=\d+/, 'w=500')} 500w, ${m.img.replace(/w=\d+/, 'w=900')} 900w`}
+                sizes="(min-width: 1024px) 45vw, 100vw"
                 alt={m.title}
                 loading="lazy"
+                decoding="async"
                 className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-700 ${
                   active === i ? 'opacity-100' : 'opacity-0'
                 }`}

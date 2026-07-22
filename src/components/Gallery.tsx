@@ -29,8 +29,11 @@ export function Gallery() {
             >
               <img
                 src={g.src}
+                srcSet={`${g.src.replace(/w=\d+/, 'w=400')} 400w, ${g.src.replace(/w=\d+/, 'w=800')} 800w`}
+                sizes="(min-width: 1024px) 25vw, 50vw"
                 alt={g.alt}
                 loading="lazy"
+                decoding="async"
                 className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
               />
             </Reveal>

@@ -1,8 +1,10 @@
+import { useState } from 'react'
 import { site } from '../data/site'
 import { Reveal } from './Reveal'
 import { Arrow, Clock, Mail, MapPin, Phone } from './Icons'
 
 export function Visit() {
+  const [mapLoaded, setMapLoaded] = useState(false)
   const mapEmbed = `https://maps.google.com/maps?q=${encodeURIComponent(
     site.address.full,
   )}&t=&z=15&ie=UTF8&iwloc=&output=embed`
@@ -73,15 +75,38 @@ export function Visit() {
             </a>
           </Reveal>
 
-          {/* Map */}
-          <Reveal className="min-h-[24rem] overflow-hidden rounded-3xl border border-mauve/15 shadow-[var(--shadow-card)]">
-            <iframe
-              title="Map to Theo·Stella Beauty Bar"
-              src={mapEmbed}
-              className="h-full min-h-[24rem] w-full"
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-            />
+          {/* Map — only loads Google Maps after the visitor taps (saves ~1MB on mobile) */}
+          <Reveal className="relative min-h-[24rem] overflow-hidden rounded-3xl border border-mauve/15 shadow-[var(--shadow-card)]">
+            {mapLoaded ? (
+              <iframe
+                title="Map to Theo·Stella Beauty Bar"
+                src={mapEmbed}
+                className="h-full min-h-[24rem] w-full"
+                referrerPolicy="no-referrer-when-downgrade"
+              />
+            ) : (
+              <button
+                type="button"
+                onClick={() => setMapLoaded(true)}
+                aria-label="Load interactive map"
+                className="group flex h-full min-h-[24rem] w-full flex-col items-center justify-center gap-4 bg-shell/60 transition-colors hover:bg-shell"
+                style={{
+                  backgroundImage:
+                    'radial-gradient(circle at 30% 30%, rgba(229,162,172,0.18), transparent 45%), radial-gradient(circle at 75% 70%, rgba(193,154,91,0.14), transparent 45%)',
+                }}
+              >
+                <span className="flex h-16 w-16 items-center justify-center rounded-full bg-cream text-rose shadow-[var(--shadow-card)] transition-transform group-hover:scale-105">
+                  <MapPin className="h-7 w-7" />
+                </span>
+                <span className="font-serif text-2xl text-plum">View the map</span>
+                <span className="text-sm font-light text-plum/60">
+                  {site.address.line1}, {site.address.line2}
+                </span>
+                <span className="mt-1 rounded-full border border-mauve/40 px-5 py-2 text-xs uppercase tracking-[0.16em] text-plum transition-colors group-hover:border-plum group-hover:bg-plum group-hover:text-cream">
+                  Tap to load
+                </span>
+              </button>
+            )}
           </Reveal>
         </div>
       </div>
