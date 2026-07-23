@@ -13,9 +13,9 @@ export function Hero() {
       }}
     >
       {/* Soft watercolor washes echoing the logo */}
-      <div className="pointer-events-none absolute left-1/2 top-24 h-[34rem] w-[34rem] -translate-x-1/2 rounded-full bg-rose/30 blur-[130px]" />
-      <div className="pointer-events-none absolute -left-24 top-1/3 h-80 w-80 rounded-full bg-blush/60 blur-[110px]" />
-      <div className="pointer-events-none absolute -right-24 top-1/2 h-96 w-96 rounded-full bg-mauve/20 blur-[120px]" />
+      <div className="pointer-events-none absolute left-1/2 top-24 h-[34rem] w-[34rem] -translate-x-1/2 rounded-full bg-rose/30 blur-[40px] sm:blur-[130px]" />
+      <div className="pointer-events-none absolute -left-24 top-1/3 h-80 w-80 rounded-full bg-blush/60 blur-[36px] sm:blur-[110px]" />
+      <div className="pointer-events-none absolute -right-24 top-1/2 h-96 w-96 rounded-full bg-mauve/20 blur-[40px] sm:blur-[120px]" />
 
       <div className="relative z-10 flex min-h-screen flex-col justify-between px-6 pb-10 pt-28 lg:px-10">
         {/* Center cluster */}

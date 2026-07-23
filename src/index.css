@@ -1,5 +1,29 @@
 @import 'tailwindcss';
 
+/* Self-hosted fonts — no render-blocking third-party request.
+   400 & 600 of Cormorant share one variable-weight file; 300 & 400 of Jost likewise. */
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: normal;
+  font-weight: 400 600;
+  font-display: swap;
+  src: url('./assets/fonts/cormorant-normal-latin.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url('./assets/fonts/cormorant-italic-latin.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Jost';
+  font-style: normal;
+  font-weight: 300 400;
+  font-display: swap;
+  src: url('./assets/fonts/jost-latin.woff2') format('woff2');
+}
+
 @theme {
   /* Brand palette — Theo·Stella blush pink, rose & gold on warm cream */
   --color-cream: #faf3ef;

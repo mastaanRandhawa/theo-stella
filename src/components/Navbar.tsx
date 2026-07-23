@@ -101,7 +101,7 @@ export function Navbar() {
             : 'invisible pointer-events-none opacity-0'
         }`}
       >
-        <div className="pointer-events-none absolute -right-24 top-10 h-96 w-96 rounded-full bg-rose/20 blur-[120px]" />
+        <div className="pointer-events-none absolute -right-24 top-10 h-96 w-96 rounded-full bg-rose/20 blur-[40px] sm:blur-[120px]" />
         <div className="mx-auto w-full max-w-7xl px-6 lg:px-10">
           <p className="editorial-label mb-6 text-gold-soft">Navigate</p>
           <ul className="space-y-0.5">

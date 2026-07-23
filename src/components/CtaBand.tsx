@@ -5,7 +5,7 @@ import { ArrowUpRight } from './Icons'
 export function CtaBand() {
   return (
     <section className="relative overflow-hidden bg-espresso py-16 text-cream">
-      <div className="pointer-events-none absolute -left-20 top-0 h-72 w-72 rounded-full bg-rose/20 blur-[110px]" />
+      <div className="pointer-events-none absolute -left-20 top-0 h-72 w-72 rounded-full bg-rose/20 blur-[36px] sm:blur-[110px]" />
       <div className="mx-auto grid max-w-7xl items-center gap-8 px-6 md:grid-cols-[auto_1fr_auto] lg:px-10">
         <Reveal className="editorial-label text-gold-soft">
           (G) — Beauty Is Self-Care, Not a Luxury
