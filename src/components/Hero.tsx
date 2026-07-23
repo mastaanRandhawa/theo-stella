@@ -1,21 +1,67 @@
+import { useEffect, useState } from 'react'
 import { site } from '../data/site'
 import { ArrowUpRight } from './Icons'
 import logo from '../assets/theo-stella-logo.webp'
 
+// Soft, dreamy salon imagery that auto cross-fades behind the hero.
+const slides = [
+  'https://images.unsplash.com/photo-1600948836101-f9ffda59d250',
+  'https://images.unsplash.com/photo-1604654894610-df63bc536371',
+  'https://images.unsplash.com/photo-1610992015732-2449b76344bc',
+  'https://images.unsplash.com/photo-1522337660859-02fbefca4702',
+]
+const src = (base: string, w: number) => `${base}?auto=format&fit=crop&w=${w}&q=55`
+
 export function Hero() {
+  const [active, setActive] = useState(0)
+  // Load the first slide immediately; stream the rest in once the page is
+  // interactive so the initial mobile load stays light.
+  const [loadRest, setLoadRest] = useState(false)
+
+  useEffect(() => {
+    const t = window.setTimeout(() => setLoadRest(true), 1200)
+    return () => window.clearTimeout(t)
+  }, [])
+
+  useEffect(() => {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
+    const id = window.setInterval(
+      () => setActive((a) => (a + 1) % slides.length),
+      5000,
+    )
+    return () => window.clearInterval(id)
+  }, [])
+
   return (
-    <section
-      id="top"
-      className="relative min-h-screen overflow-hidden"
-      style={{
-        background:
-          'radial-gradient(120% 90% at 50% 0%, #fbe3e6 0%, #f9d9dd 22%, #faf3ef 60%, #faf3ef 100%)',
-      }}
-    >
-      {/* Soft watercolor washes echoing the logo */}
-      <div className="pointer-events-none absolute left-1/2 top-24 h-[34rem] w-[34rem] -translate-x-1/2 rounded-full bg-rose/30 blur-[40px] sm:blur-[130px]" />
-      <div className="pointer-events-none absolute -left-24 top-1/3 h-80 w-80 rounded-full bg-blush/60 blur-[36px] sm:blur-[110px]" />
-      <div className="pointer-events-none absolute -right-24 top-1/2 h-96 w-96 rounded-full bg-mauve/20 blur-[40px] sm:blur-[120px]" />
+    <section id="top" className="relative min-h-screen overflow-hidden bg-cream">
+      {/* Auto-fading salon carousel */}
+      <div className="absolute inset-0">
+        {slides.map((s, i) => {
+          const show = i === 0 || loadRest
+          return (
+            <img
+              key={s}
+              src={show ? src(s, 1400) : undefined}
+              srcSet={show ? `${src(s, 700)} 700w, ${src(s, 1400)} 1400w` : undefined}
+              sizes="100vw"
+              alt=""
+              aria-hidden="true"
+              loading={i === 0 ? 'eager' : 'lazy'}
+              fetchPriority={i === 0 ? 'high' : 'low'}
+              decoding="async"
+              className={`animate-kenburns absolute inset-0 h-full w-full object-cover blur-[2px] transition-opacity duration-[2200ms] ease-in-out ${
+                i === active ? 'opacity-100' : 'opacity-0'
+              }`}
+            />
+          )
+        })}
+      </div>
+
+      {/* Dreamy pink veil — keeps text readable and gives the misty look */}
+      <div className="absolute inset-0 bg-gradient-to-b from-cream/80 via-blush/25 to-cream/85" />
+      <div className="absolute inset-0 bg-rose/10" />
+      <div className="pointer-events-none absolute left-1/2 top-24 h-[34rem] w-[34rem] -translate-x-1/2 rounded-full bg-rose/25 blur-[130px]" />
+      <div className="pointer-events-none absolute -left-24 top-1/3 h-80 w-80 rounded-full bg-blush/50 blur-[120px]" />
 
       <div className="relative z-10 flex min-h-screen flex-col justify-between px-6 pb-10 pt-28 lg:px-10">
         {/* Center cluster */}
@@ -27,14 +73,14 @@ export function Hero() {
             height={480}
             fetchPriority="high"
             decoding="async"
-            className="mb-2 h-40 w-auto drop-shadow-[0_10px_30px_rgba(216,140,150,0.35)] sm:h-52"
+            className="mb-2 h-40 w-auto drop-shadow-[0_10px_30px_rgba(216,140,150,0.4)] sm:h-52"
           />
 
-          <p className="editorial-label mb-5 text-mauve">
+          <p className="editorial-label mb-5 text-mauve drop-shadow-[0_1px_10px_rgba(250,243,239,0.7)]">
             Russian Manicure &amp; Beauty Bar — Surrey, BC
           </p>
 
-          <h1 className="font-serif text-6xl leading-[0.9] text-plum sm:text-8xl lg:text-[8.5rem]">
+          <h1 className="font-serif text-6xl leading-[0.9] text-plum drop-shadow-[0_2px_20px_rgba(250,243,239,0.6)] sm:text-8xl lg:text-[8.5rem]">
             Rejoice,
             <span className="mt-1 block italic text-rose">Always</span>
           </h1>
@@ -51,7 +97,7 @@ export function Hero() {
             </a>
             <a
               href="#services"
-              className="rounded-full border border-mauve/40 px-8 py-4 text-sm uppercase tracking-[0.16em] text-plum transition-colors duration-300 hover:border-plum hover:bg-plum/5"
+              className="rounded-full border border-plum/40 bg-cream/40 px-8 py-4 text-sm uppercase tracking-[0.16em] text-plum backdrop-blur-sm transition-colors duration-300 hover:border-plum hover:bg-cream/70"
             >
               Explore Services
             </a>
@@ -59,7 +105,7 @@ export function Hero() {
         </div>
 
         {/* Bottom row */}
-        <div className="flex flex-col items-center gap-6 border-t border-mauve/20 pt-6 text-plum/70 md:flex-row md:items-end md:justify-between">
+        <div className="flex flex-col items-center gap-6 border-t border-mauve/25 pt-6 text-plum/70 md:flex-row md:items-end md:justify-between">
           <div className="hidden text-lg tracking-[0.35em] text-rose/60 md:block">
             &#10022; &#10022; &#10022;
           </div>
