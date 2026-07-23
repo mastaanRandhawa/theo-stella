@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react'
 import { site } from '../data/site'
 import { ArrowUpRight } from './Icons'
-import logo from '../assets/theo-stella-logo.webp'
 
 // Soft, dreamy salon imagery that auto cross-fades behind the hero.
 const slides = [
@@ -49,7 +48,7 @@ export function Hero() {
               loading={i === 0 ? 'eager' : 'lazy'}
               fetchPriority={i === 0 ? 'high' : 'low'}
               decoding="async"
-              className={`animate-kenburns absolute inset-0 h-full w-full object-cover blur-[2px] transition-opacity duration-[2200ms] ease-in-out ${
+              className={`animate-kenburns absolute inset-0 h-full w-full object-cover blur-[4px] transition-opacity duration-[2200ms] ease-in-out ${
                 i === active ? 'opacity-100' : 'opacity-0'
               }`}
             />
@@ -57,32 +56,23 @@ export function Hero() {
         })}
       </div>
 
-      {/* Dreamy pink veil — keeps text readable and gives the misty look */}
-      <div className="absolute inset-0 bg-gradient-to-b from-cream/80 via-blush/25 to-cream/85" />
-      <div className="absolute inset-0 bg-rose/10" />
-      <div className="pointer-events-none absolute left-1/2 top-24 h-[34rem] w-[34rem] -translate-x-1/2 rounded-full bg-rose/25 blur-[130px]" />
-      <div className="pointer-events-none absolute -left-24 top-1/3 h-80 w-80 rounded-full bg-blush/50 blur-[120px]" />
+      {/* Dreamy pink mist — heavier veil so the salon fades softly behind the text */}
+      <div className="absolute inset-0 bg-blush/45" />
+      <div className="absolute inset-0 bg-gradient-to-b from-cream/80 via-rose/25 to-cream/90" />
+      <div className="pointer-events-none absolute left-1/2 top-1/4 h-[40rem] w-[40rem] -translate-x-1/2 rounded-full bg-rose/35 blur-[130px]" />
+      <div className="pointer-events-none absolute -left-24 top-1/3 h-80 w-80 rounded-full bg-blush/70 blur-[120px]" />
+      <div className="pointer-events-none absolute -right-24 bottom-1/4 h-96 w-96 rounded-full bg-mauve/25 blur-[120px]" />
 
       <div className="relative z-10 flex min-h-screen flex-col justify-between px-6 pb-10 pt-28 lg:px-10">
         {/* Center cluster */}
         <div className="flex flex-1 flex-col items-center justify-center text-center">
-          <img
-            src={logo}
-            alt="Theo·Stella Beauty Bar"
-            width={480}
-            height={480}
-            fetchPriority="high"
-            decoding="async"
-            className="mb-2 h-40 w-auto drop-shadow-[0_10px_30px_rgba(216,140,150,0.4)] sm:h-52"
-          />
-
-          <p className="editorial-label mb-5 text-mauve drop-shadow-[0_1px_10px_rgba(250,243,239,0.7)]">
+          <p className="mb-5 text-xs uppercase tracking-[0.22em] text-plum/70 drop-shadow-[0_1px_14px_rgba(250,243,239,0.95)]">
             Russian Manicure &amp; Beauty Bar — Surrey, BC
           </p>
 
-          <h1 className="font-serif text-6xl leading-[0.9] text-plum drop-shadow-[0_2px_20px_rgba(250,243,239,0.6)] sm:text-8xl lg:text-[8.5rem]">
+          <h1 className="font-serif text-6xl leading-[0.9] text-plum drop-shadow-[0_1px_26px_rgba(250,243,239,0.95)] sm:text-8xl lg:text-[8.5rem]">
             Rejoice,
-            <span className="mt-1 block italic text-rose">Always</span>
+            <span className="mt-1 block italic text-[#bf6076]">Always</span>
           </h1>
 
           <div className="mt-9 flex flex-wrap items-center justify-center gap-4">

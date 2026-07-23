@@ -12,16 +12,8 @@ export function About() {
         </Reveal>
 
         <div className="relative mt-10 grid gap-10 lg:grid-cols-[1.6fr_1fr]">
-          {/* Big statement with overlapping images */}
+          {/* Big statement */}
           <Reveal className="relative">
-            <div className="pointer-events-none absolute -right-2 -top-16 hidden h-40 w-56 overflow-hidden rounded-xl border-4 border-cream shadow-[var(--shadow-card)] lg:block">
-              <LazyImage
-                src="https://images.unsplash.com/photo-1600948836101-f9ffda59d250?auto=format&fit=crop&w=500&q=70"
-                alt="Salon detail"
-                className="h-full w-full object-cover"
-              />
-            </div>
-
             <h2 className="font-serif text-4xl leading-[1.12] text-plum sm:text-5xl lg:text-[3.4rem]">
               Our journey began with a vision — to create a sanctuary where hands are
               cared for and confidence is
